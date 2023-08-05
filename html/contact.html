@@ -104,7 +104,7 @@
                 </ul>
             </li>
             <li class="nav-links-list"><a class="nav-links-href" href="../html/ourClinic.html">about us</a></li>
-            <li class="nav-links-list"><a class="logo" href="../index.html">kw Selflove</a>
+            <li class="nav-links-list"><a class="logo my-logo-ita" href="../index.html">kw Selflove</a>
                 
             </li> 
             <li class="nav-links-list"><a class="nav-links-href" href="../html/contact.html">contact</a></li>
@@ -137,23 +137,37 @@
                     <p>
                         Please fill in our form, we will reply as soon as possible...
                     </p>
-                    <form action="#">
+                    <form action="send_email.php" method="post">
                         <div class="input-box">
-                            <input type="text" placeholder="Full name *" />
+                            <input type="text" id="name" name="name"  placeholder="Full name *" required />
                         </div>
                         <div class="input-box">
-                            <input type="text" placeholder="Email *" />
+                            <input type="email" id="email" placeholder="Email *" required />
                         </div>
                         <div class="input-box">
-                            <input type="text" placeholder="Telephone *" />
+                            <input id="phone" name="phone" type="text" placeholder="Telephone *" required/>
                         </div>
                         <div class="input-box message-box">
-                            <textarea placeholder="Message"></textarea>
+                            <textarea id="message" name="message" placeholder="Message" required></textarea>
                         </div>
                         <div class="button">
-                            <input type="button" value="Send" />
+                            <input type="submit" value="Send" />
                         </div>
                     </form>
+                    <?php
+                    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                      $to = "matv1ychuk28591@gmail.com";
+                      $subject = "Нове повідомлення з форми від " . $_POST["name"];
+                      $message = $_POST["message"];
+                      $headers = "From: " . $_POST["email"];
+                    
+                      // Відправити повідомлення на пошту
+                      mail($to, $subject, $message, $headers);
+                    
+                      // Перенаправлення після відправлення
+                      header("Location: ./index.html");
+                    }
+                    ?>
                 </div>
             </div>
         </div>

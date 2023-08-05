@@ -365,6 +365,7 @@ header:hover {
     font-weight: 800;
     color: var(--grey);
     margin-bottom: 20px;
+    background: white;
 }
 
 .intmed-block-text p {
@@ -385,6 +386,7 @@ header:hover {
     font-weight: 800;
     text-transform: uppercase;
     margin-top: 4vh;
+    background: white;
 }
 
 .intmed-block-btn:hover {
@@ -1666,4 +1668,11 @@ a.scroll {
 
 .noone {
     display: none;
+}
+
+
+.intmed-block-main {
+    background-image: url(../imgNew/IMG_6947.JPG);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
